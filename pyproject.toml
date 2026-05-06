@@ -1,0 +1,88 @@
+[project]
+name = "bedrock-attest"
+version = "0.1.0"
+description = "Behavioral attestation for AI agents — signed, verifiable, cross-provider."
+readme = "README.md"
+license = {text = "MIT"}
+requires-python = ">=3.9"
+authors = [{name = "MrPredic"}]
+keywords = [
+    "llm", "agent", "attestation", "behavioral-fingerprint", "drift-detection",
+    "ai-safety", "eu-ai-act", "compliance", "sigstore", "verification",
+    "openai", "anthropic", "ollama", "cross-provider", "signed",
+]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3 :: Only",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Topic :: Software Development :: Libraries :: Python Modules",
+    "Topic :: Software Development :: Quality Assurance",
+    "Typing :: Typed",
+]
+dependencies = [
+    "tiktoken>=0.7",
+    "cryptography>=42",
+    'tomli>=2 ; python_version < "3.11"',
+    "tomli-w>=1.0",
+]
+
+[project.optional-dependencies]
+deep = ["sentence-transformers>=2.5", "numpy>=1.24"]
+drift = ["drift-detector-agent>=2.0"]
+cosign = ["sigstore>=3.0"]
+dev = [
+    "pytest>=7",
+    "pytest-cov>=4",
+    "ruff>=0.1",
+    "mypy>=1",
+    "build>=1",
+    "twine>=4",
+]
+all = [
+    "sentence-transformers>=2.5",
+    "numpy>=1.24",
+    "drift-detector-agent>=2.0",
+    "sigstore>=3.0",
+]
+
+[project.urls]
+Homepage = "https://github.com/SixToNineOG/bedrock-attest"
+Repository = "https://github.com/SixToNineOG/bedrock-attest"
+Issues = "https://github.com/SixToNineOG/bedrock-attest/issues"
+Changelog = "https://github.com/SixToNineOG/bedrock-attest/blob/main/CHANGELOG.md"
+Documentation = "https://github.com/SixToNineOG/bedrock-attest#readme"
+
+[project.scripts]
+bedrock = "bedrock_attest.cli:main"
+
+[build-system]
+requires = ["setuptools>=68.0"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["bedrock_attest*"]
+exclude = ["tests*", "examples*", "docs*"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py39"
+
+[tool.mypy]
+python_version = "3.9"
+strict = false
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+markers = [
+    "live: marks tests as requiring live API access (deselect with -m 'not live')",
+]
