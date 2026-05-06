@@ -55,11 +55,11 @@ all = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/SixToNineOG/bedrock-attest"
-Repository = "https://github.com/SixToNineOG/bedrock-attest"
-Issues = "https://github.com/SixToNineOG/bedrock-attest/issues"
-Changelog = "https://github.com/SixToNineOG/bedrock-attest/blob/main/CHANGELOG.md"
-Documentation = "https://github.com/SixToNineOG/bedrock-attest#readme"
+Homepage = "https://github.com/MrPredic/bedrock-attest"
+Repository = "https://github.com/MrPredic/bedrock-attest"
+Issues = "https://github.com/MrPredic/bedrock-attest/issues"
+Changelog = "https://github.com/MrPredic/bedrock-attest/blob/main/CHANGELOG.md"
+Documentation = "https://github.com/MrPredic/bedrock-attest#readme"
 
 [project.scripts]
 bedrock = "bedrock_attest.cli:main"
