@@ -86,3 +86,9 @@ testpaths = ["tests"]
 markers = [
     "live: marks tests as requiring live API access (deselect with -m 'not live')",
 ]
+
+[tool.coverage.run]
+omit = ["bedrock_attest/cli.py"]
+
+[tool.coverage.report]
+exclude_lines = ["pragma: no cover", "if TYPE_CHECKING:"]
