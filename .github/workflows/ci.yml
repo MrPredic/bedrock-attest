@@ -28,8 +28,7 @@ jobs:
         run: ruff check bedrock_attest/
 
       - name: Run tests
-        run: pytest -q -m "not live"
+        run: pytest -q -m "not live"; code=$?; [ $code -eq 0 ] || [ $code -eq 5 ]
 
       - name: Coverage
-        run: pytest --cov=bedrock_attest --cov-report=term-missing -q -m "not live"
-        continue-on-error: true
+        run: pytest --cov=bedrock_attest --cov-report=term-missing -q -m "not live"; code=$?; [ $code -eq 0 ] || [ $code -eq 5 ]
